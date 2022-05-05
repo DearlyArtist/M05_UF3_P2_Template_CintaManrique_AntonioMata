@@ -17,6 +17,16 @@
     <input type="number" min="0" step="1" asp-for="product.Developer_id">
     <input type="number" min="0" step="1" asp-for="product.Editor_id">
 </form>
-<a class="btn btn-primary float-right" asp-page="/Products/Game" asp-route-id="@Model.helper_id" title="View Game">
+
+@if(Model.product.Type == App_Code.Model.Product.TYPE.Game)
+{
+    <a class="btn btn-primary float-right" asp-page="/Products/Game" asp-route-id="@Model.helper_id" title="View Game">
     <span class="material-icons text-white">add</span>
 </a>
+}
+else
+{
+    <a class="btn btn-primary float-right" asp-page="/Products/Video" asp-route-id="@Model.helper_id" title="View Video">
+    <span class="material-icons text-white">add</span>
+</a>
+}

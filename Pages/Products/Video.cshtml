@@ -2,3 +2,10 @@
 @model M05_UF3_P2_Template.Pages.Products.VideoModel
 @{
 }
+
+<form method="post">
+    <button type="submit">Save</button>
+
+    <input type="text" asp-for="product.Product_Id">
+    <input type="text" asp-for="product.Duration">
+</form>

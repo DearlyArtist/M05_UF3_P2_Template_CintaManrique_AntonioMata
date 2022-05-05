@@ -2,3 +2,11 @@
 @model M05_UF3_P2_Template.Pages.Products.GameModel
 @{
 }
+
+<form method="post">
+    <button type="submit">Save</button>
+
+    <input type="text" asp-for="product.Product_Id">
+    <input type="text" asp-for="product.Rating">
+    <input type="text" asp-for="product.Version">
+</form>

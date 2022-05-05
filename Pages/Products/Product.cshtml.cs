@@ -30,6 +30,10 @@ namespace M05_UF3_P2_Template.Pages.Products
                     helper_id = (int)DatabaseManager.Select("Video", new string[] { "Id" }, "Product_Id = " + Id).Rows[0][0];
                 }
             }
+            else
+            {
+                product = new Product();
+            }
         }
 
         public void OnPost()
