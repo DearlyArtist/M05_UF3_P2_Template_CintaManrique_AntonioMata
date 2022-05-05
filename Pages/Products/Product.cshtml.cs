@@ -21,7 +21,14 @@ namespace M05_UF3_P2_Template.Pages.Products
             if(Id > 0)
             {
                 product = new Product(Id);
-                helper_id = (int)DatabaseManager.Select("Game", new string[] { "Id" }, "Product_Id = " + Id).Rows[0][0];
+                if(product.Type == Product.TYPE.Game)
+                {
+                    helper_id = (int)DatabaseManager.Select("Game", new string[] { "Id" }, "Product_Id = " + Id).Rows[0][0];
+                }
+                else if(product.Type == Product.TYPE.Video)
+                {
+                    helper_id = (int)DatabaseManager.Select("Video", new string[] { "Id" }, "Product_Id = " + Id).Rows[0][0];
+                }
             }
         }
 
@@ -36,6 +43,19 @@ namespace M05_UF3_P2_Template.Pages.Products
             {
                 product.Add();
                 Id = (int)DatabaseManager.Scalar("Product", DatabaseManager.SCALAR_TYPE.MAX, new string[] { "Id" }, "");
+
+                if(product.Type == Product.TYPE.Game)
+                {
+                    Game temp = new Game();
+                    temp.Product_Id = Id;
+                    temp.Add();
+                }
+                else
+                {
+                    Video temp = new Video();
+                    temp.Product_Id = Id;
+                    temp.Add();
+                }
                 OnGet();
             }
         }

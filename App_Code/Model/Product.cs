@@ -142,10 +142,5 @@ namespace M05_UF3_P2_Template.App_Code.Model
         {
             return DatabaseManager.Delete("Product", id) > 0 ? true : false;
         }
-
-        public void LoadCompanies()
-        {
-
-        }
     }
 }
