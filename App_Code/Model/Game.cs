@@ -19,17 +19,61 @@ namespace M05_UF3_P2_Template.App_Code.Model
         }
         public Game(DataRow row)
         {
-
+            try
+            {
+                Id = (int)row[0];
+            }
+            catch
+            {
+                Id = 0;
+            }
+            try
+            {
+                Product_Id = (int)row[1];
+            }
+            catch
+            {
+                Product_Id = 0;
+            }
+            try
+            {
+                Rating = float.Parse(row[2].ToString());
+            }
+            catch
+            {
+                Rating = 0;
+            }
+            Version = row[3].ToString();
         }
         public Game(int id) : this(DatabaseManager.Select("Game", null, "Id = " + id + " ").Rows[0]) { }
 
-        public void Update()
+        public bool Update()
         {
-
+            DatabaseManager.DB_Field[] fields = new DatabaseManager.DB_Field[]
+            {
+                //new DatabaseManager.DB_Field("Publishing", Publishing),
+                new DatabaseManager.DB_Field("Duration", Rating),
+                new DatabaseManager.DB_Field("Duration", Version),
+            };
+            return DatabaseManager.Update("Game", fields, "Id = " + Id + " ") > 0 ? true : false;
         }
-        public void Add()
+        public bool Add()
         {
+            DatabaseManager.DB_Field[] fields = new DatabaseManager.DB_Field[]
+            {
+                new DatabaseManager.DB_Field("Duration", Rating),
+                new DatabaseManager.DB_Field("Duration", Version),
+            };
+            return DatabaseManager.Insert("Game", fields) > 0 ? true : false;
+        }
 
+        public bool Remove()
+        {
+            return Remove(Id);
+        }
+        public static bool Remove(int id)
+        {
+            return DatabaseManager.Delete("Game", id) > 0 ? true : false;
         }
     }
 }
