@@ -134,5 +134,18 @@ namespace M05_UF3_P2_Template.App_Code.Model
             };
             return DatabaseManager.Insert("Product", fields) > 0 ? true : false;
         }
+        public bool Remove()
+        {
+            return Remove(Id);
+        }
+        public static bool Remove(int id)
+        {
+            return DatabaseManager.Delete("Product", id) > 0 ? true : false;
+        }
+
+        public void LoadCompanies()
+        {
+
+        }
     }
 }

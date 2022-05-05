@@ -77,5 +77,12 @@ namespace M05_UF3_P2_Template.App_Code.Model
         {
             return DatabaseManager.Delete("Company", id) > 0 ? true : false;
         }
+
+        public List<Product> GetProduct()
+        {
+            List<Product> product = new List<Product>(Id);
+
+            return product;
+        }
     }
 }

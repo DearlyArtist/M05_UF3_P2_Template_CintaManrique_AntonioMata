@@ -43,7 +43,7 @@ namespace M05_UF3_P2_Template.App_Code.Model
                 Duration=0;
             }
         }
-        public Video(int id) : this(DatabaseManager.Select("Vídeo", null, "Id = " + id + " ").Rows[0]) { }
+        public Video(int id) : this(DatabaseManager.Select("Video", null, "Id = " + id + " ").Rows[0]) { }
 
         public bool Update()
         {
@@ -52,7 +52,7 @@ namespace M05_UF3_P2_Template.App_Code.Model
                 //new DatabaseManager.DB_Field("Publishing", Publishing),
                 new DatabaseManager.DB_Field("Duration", Duration),
             };
-            return DatabaseManager.Update("Vídeo", fields, "Id = " + Id + " ") > 0 ? true : false;
+            return DatabaseManager.Update("Video", fields, "Id = " + Id + " ") > 0 ? true : false;
         }
         public bool Add()
         {
@@ -60,7 +60,7 @@ namespace M05_UF3_P2_Template.App_Code.Model
             {
                 new DatabaseManager.DB_Field("Duration", Duration),
             };
-            return DatabaseManager.Insert("Vídeo", fields) > 0 ? true : false;
+            return DatabaseManager.Insert("Video", fields) > 0 ? true : false;
         }
         public bool Remove()
         {
@@ -68,7 +68,7 @@ namespace M05_UF3_P2_Template.App_Code.Model
         }
         public static bool Remove(int id)
         {
-            return DatabaseManager.Delete("Vídeo", id) > 0 ? true : false;
+            return DatabaseManager.Delete("Video", id) > 0 ? true : false;
         }
     }
 }
