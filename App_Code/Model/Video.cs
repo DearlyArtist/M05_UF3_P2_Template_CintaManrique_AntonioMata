@@ -50,6 +50,7 @@ namespace M05_UF3_P2_Template.App_Code.Model
             DatabaseManager.DB_Field[] fields = new DatabaseManager.DB_Field[]
             {
                 //new DatabaseManager.DB_Field("Publishing", Publishing),
+                new DatabaseManager.DB_Field("Product_Id", Product_Id),
                 new DatabaseManager.DB_Field("Duration", Duration),
             };
             return DatabaseManager.Update("Video", fields, "Id = " + Id + " ") > 0 ? true : false;
@@ -58,6 +59,7 @@ namespace M05_UF3_P2_Template.App_Code.Model
         {
             DatabaseManager.DB_Field[] fields = new DatabaseManager.DB_Field[]
             {
+                new DatabaseManager.DB_Field("Product_Id", Product_Id),
                 new DatabaseManager.DB_Field("Duration", Duration),
             };
             return DatabaseManager.Insert("Video", fields) > 0 ? true : false;
