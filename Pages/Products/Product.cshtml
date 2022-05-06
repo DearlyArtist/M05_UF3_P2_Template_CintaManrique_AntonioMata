@@ -70,16 +70,18 @@
                 <div class="form-group col-md-2">
                          <label for="Product_Type_Input col-sm-2 col-form-label"><span class="material-icons mx-1" style="font-size: 1rem;">business</span>Type</label>
                          @if(Model.product.Type == App_Code.Model.Product.TYPE.Game)
-                         {
+                         {@*
                          <a class="btn btn-primary float-right" asp-page="/Products/Game" asp-route-id="@Model.helper_id" title="View Game">
                          <span class="material-icons text-white">add</span>
-                         </a>
+                         </a>*@
+                         <input type="number" asp-for="product.Type">
                          }
                          else
                          {
-                         <a class="btn btn-primary float-right" asp-page="/Products/Video" asp-route-id="@Model.helper_id" title="View Video">
+@*                         <a class="btn btn-primary float-right" asp-page="/Products/Video" asp-route-id="@Model.helper_id" title="View Video">
                          <span class="material-icons text-white">add</span>
-                         </a>
+                         </a>*@
+                         <input type="number" asp-for="product.Type">
                          }
                 </div>
             </div>
